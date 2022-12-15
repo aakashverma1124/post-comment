@@ -2,12 +2,12 @@ import React, {useState} from 'react'
 import axios from 'axios';
 
 export default ({postId}) => {
-    
+
     const [content, setContent] = useState('');
     
-    const onSubmit = event => {
+    const onSubmit = async event => {
         event.preventDefault();
-        axios.post(`http://localhost:4001/posts/${postId}/comments`, {content});
+        await axios.post(`http://localhost:4001/posts/${postId}/comments`, {content});
         setContent('');
     };
 
